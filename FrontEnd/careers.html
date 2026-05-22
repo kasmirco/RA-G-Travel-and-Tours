@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>RA' G Travel and Tours | Careers</title>
+
+<link rel="icon" type="image/png" href="../IMG/Logo.png">
+
+<!-- REMIX ICON -->
+<link
+href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+rel="stylesheet"
+/>
+
+<style>
+
+/* =========================================================
+   FONT
+========================================================= */
+
+@font-face{
+    font-family:'Gravelo';
+    src:url('./Gravelo DEMO VERSION.woff2') format('woff2');
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050505;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+}
+
+.navbar{
+    width:100%;
+    max-width:2050px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 42px;
+
+    background:rgba(26,10,1,0.42);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    position:relative;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    z-index:1002;
+}
+
+.logo-area img{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo-area h2{
+    font-size:1rem;
+    font-weight:700;
+}
+
+/* =========================================================
+   NAVIGATION DESKTOP
+========================================================= */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    gap:48px;
+
+    list-style:none;
+
+    margin-left:auto;
+    margin-right:55px;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+.nav-links a{
+    position:relative;
+
+    text-decoration:none;
+
+    color:rgba(255,255,255,0.88);
+
+    font-size:0.82rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:.35s ease;
+}
+
+.nav-links a:hover{
+    color:#ff9d2f;
+}
+
+/* UNDERLINE */
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+    height:2px;
+
+    border-radius:50px;
+
+    background:#ff9d2f;
+
+    transition:.35s ease;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-links a.active{
+    color:#ff9d2f;
+}
+
+.nav-links a.active::after{
+    width:100%;
+}
+
+/* =========================================================
+   DROPDOWN DESKTOP
+========================================================= */
+
+.dropdown{
+    position:relative;
+}
+
+/* DESKTOP DROPDOWN */
+
+@media(min-width:992px){
+
+.dropdown-menu{
+    position:absolute;
+
+    top:100%;
+
+    padding-top:18px;
+        left:50%;
+
+        transform:
+        translateX(-50%)
+        translateY(10px);
+
+        min-width:240px;
+
+        padding:10px;
+
+        border-radius:20px;
+
+        background:rgba(10,10,10,0.96);
+
+        backdrop-filter:blur(18px);
+
+        border:1px solid rgba(255,255,255,0.08);
+
+        display:flex;
+        flex-direction:column;
+
+        gap:4px;
+
+        opacity:0;
+        visibility:hidden;
+
+        pointer-events:none;
+
+        transition:.35s ease;
+
+        z-index:999;
+    }
+/* EXTRA HOVER AREA */
+
+.dropdown::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:100%;
+
+    width:100%;
+    height:20px;
+}
+    .dropdown:hover .dropdown-menu{
+        opacity:1;
+        visibility:visible;
+
+        transform:
+        translateX(-50%)
+        translateY(0);
+
+        pointer-events:auto;
+    }
+
+    .dropdown-menu a{
+        width:100%;
+
+        display:block;
+
+        padding:13px 16px;
+
+        border-radius:14px;
+
+        font-size:.76rem;
+
+        line-height:1.4;
+
+        white-space:normal;
+    }
+
+    .dropdown-menu a::after{
+        display:none;
+    }
+
+    .dropdown-menu a:hover{
+        background:rgba(255,157,47,0.12);
+
+        color:#ff9d2f;
+
+        padding-left:22px;
+    }
+
+}
+
+/* MOBILE DROPDOWN */
+
+@media(max-width:991px){
+
+    .dropdown{
+        width:100%;
+    }
+
+    .dropdown-menu{
+        position:relative;
+
+        top:0;
+        left:0;
+
+        transform:none;
+
+        opacity:1;
+        visibility:visible;
+
+        display:none;
+        flex-direction:column;
+
+        width:100%;
+
+        margin-top:10px;
+
+        padding:8px;
+
+        border-radius:16px;
+
+        background:rgba(255,255,255,0.03);
+
+        border:1px solid rgba(255,255,255,0.05);
+
+        overflow:hidden;
+    }
+
+    .dropdown.active .dropdown-menu{
+        display:flex;
+        gap:4px;
+    }
+
+    .dropdown-menu a{
+        width:100%;
+    pointer-events:auto;
+        display:block;
+
+        padding:12px 14px;
+
+        border-radius:12px;
+
+        font-size:.72rem;
+
+        line-height:1.4;
+
+        white-space:normal;
+    }
+
+    .dropdown-menu a::after{
+        display:none;
+    }
+
+    .dropdown-menu a:hover{
+        background:rgba(255,157,47,0.12);
+
+        color:#ff9d2f;
+
+        padding-left:20px;
+    }
+
+}
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.contact-btn{
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    color:#fff;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:.35s ease;
+}
+
+.contact-btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 28px rgba(255,122,0,0.35);
+}
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-btn{
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    width:44px;
+    height:44px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    font-size:1.4rem;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+    z-index:1002;
+}
+
+.menu-btn:hover{
+    background:rgba(255,157,47,0.14);
+    color:#ffb347;
+}
+
+/* =========================================================
+   CAREERS SECTION
+========================================================= */
+
+.careers-section{
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:110px 30px 40px;
+
+    overflow:hidden;
+}
+
+/* BACKGROUND */
+
+.careers-bg{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:brightness(.25);
+
+    z-index:-2;
+}
+
+.bg-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,122,0,0.18),
+    transparent 30%),
+
+    linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.92)
+    );
+
+    z-index:-1;
+}
+
+/* CONTENT */
+
+.careers-container{
+    width:100%;
+    max-width:1350px;
+
+    text-align:center;
+}
+
+.careers-title{
+    font-family:'Gravelo',sans-serif;
+
+    font-size:3.2rem;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+
+    text-transform:uppercase;
+}
+
+.careers-subtitle{
+    max-width:820px;
+
+    margin:auto;
+
+    color:rgba(255,255,255,0.72);
+
+    line-height:1.7;
+
+    font-size:.92rem;
+
+    margin-bottom:45px;
+}
+
+/* =========================================================
+   CAREER GRID
+========================================================= */
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+/* CARD */
+
+.career-card{
+    position:relative;
+
+    padding:32px 24px;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(16px);
+
+    overflow:hidden;
+
+    transition:
+    transform .45s ease,
+    box-shadow .45s ease;
+}
+
+.career-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 35px rgba(255,157,47,0.25);
+}
+
+/* ICON */
+
+.career-icon{
+    width:72px;
+    height:72px;
+
+    margin:auto auto 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:2.5rem;
+
+    color:#ffb347;
+
+    background:
+    rgba(255,157,47,0.12);
+
+    border:
+    1px solid rgba(255,157,47,0.25);
+
+    box-shadow:
+    0 0 30px rgba(255,157,47,0.15);
+}
+
+/* TAG */
+
+.career-tag{
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,157,47,0.12);
+
+    border:
+    1px solid rgba(255,157,47,0.25);
+
+    color:#ffb347;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:22px;
+}
+
+/* TITLE */
+
+.career-card h2{
+    font-size:1.55rem;
+
+    line-height:1.3;
+
+    margin-bottom:12px;
+}
+
+/* TYPE */
+
+.job-type{
+    color:rgba(255,255,255,0.68);
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+
+    font-size:.78rem;
+}
+
+/* DESCRIPTION */
+
+.career-desc{
+    color:rgba(255,255,255,0.70);
+
+    line-height:1.6;
+
+    margin-bottom:24px;
+
+    font-size:.86rem;
+}
+
+/* BUTTON */
+
+.info-btn{
+    border:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    color:#fff;
+
+    padding:13px 28px;
+
+    border-radius:60px;
+
+    font-size:.92rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.info-btn:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 12px 28px rgba(255,122,0,0.35);
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    background:rgba(0,0,0,0.75);
+
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.4s ease;
+
+    z-index:9999;
+}
+
+.modal.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-content{
+    position:relative;
+
+    width:100%;
+    max-width:900px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:45px;
+
+    border-radius:32px;
+
+    background:
+    rgba(12,12,12,0.96);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    transform:scale(.88);
+
+    transition:.4s ease;
+}
+
+.modal.active .modal-content{
+    transform:scale(1);
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    position:absolute;
+
+    top:16px;
+    right:16px;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.06);
+
+    color:#fff;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.close-btn:hover{
+    background:#ff9d2f;
+
+    transform:rotate(90deg);
+}
+
+/* MODAL BODY */
+
+.modal-section{
+    margin-bottom:35px;
+}
+
+.modal-section h2{
+    font-size:2.3rem;
+
+    margin-bottom:18px;
+}
+
+.modal-section h3{
+    color:#ffb347;
+
+    margin-bottom:14px;
+
+    letter-spacing:1px;
+}
+
+.modal-section p{
+    color:rgba(255,255,255,0.75);
+
+    line-height:1.9;
+}
+
+.modal-section ul{
+    padding-left:22px;
+}
+
+.modal-section ul li{
+    color:rgba(255,255,255,0.75);
+
+    line-height:1.9;
+
+    margin-bottom:10px;
+}
+
+/* APPLY BUTTON */
+
+.apply-btn{
+    width:100%;
+
+    border:none;
+
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    color:#fff;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.apply-btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 12px 28px rgba(255,122,0,0.35);
+}
+
+/* APPLY MESSAGE */
+
+.apply-message{
+    margin-top:18px;
+
+    padding:18px 20px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,157,47,0.10);
+
+    border:
+    1px solid rgba(255,157,47,0.22);
+
+    color:#ffd7a3;
+
+    line-height:1.7;
+
+    display:none;
+}
+
+/* =========================================================
+   RESPONSIVE NAVIGATION
+========================================================= */
+
+@media(max-width:991px){
+
+    .navbar{
+        padding:16px 20px;
+    }
+
+    .menu-btn{
+        display:flex;
+    }
+
+    .contact-btn{
+        display:none;
+    }
+
+    .nav-links{
+        position:absolute;
+
+        top:82px;
+        left:20px;
+
+        width:240px;
+        height:auto;
+
+        background:rgba(10,10,10,0.96);
+
+        backdrop-filter:blur(18px);
+
+        border:1px solid rgba(255,255,255,0.08);
+
+        border-radius:24px;
+
+        padding:22px;
+
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+
+        gap:6px;
+
+        margin:0;
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-10px);
+
+        transition:.35s ease;
+
+        pointer-events:none;
+
+        z-index:1001;
+    }
+
+    .nav-links.active{
+        opacity:1;
+        visibility:visible;
+
+        transform:translateY(0);
+
+        pointer-events:auto;
+    }
+
+    .nav-links li{
+        width:100%;
+    }
+
+    .nav-links a{
+        width:100%;
+
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+        padding:12px 14px;
+
+        border-radius:14px;
+
+        font-size:.78rem;
+    }
+
+    .nav-links a::after{
+        display:none;
+    }
+
+    .nav-links a:hover{
+        background:rgba(255,157,47,0.12);
+    }
+
+    /* MOBILE DROPDOWN */
+
+    .dropdown-menu{
+        position:static;
+
+        transform:none;
+
+        opacity:1;
+        visibility:visible;
+
+        display:none;
+
+        min-width:100%;
+
+        margin-top:8px;
+
+        padding:10px;
+
+        border-radius:16px;
+
+        background:rgba(255,255,255,0.03);
+
+        border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .dropdown.active .dropdown-menu{
+        display:flex;
+    }
+
+    .dropdown-menu a{
+        padding:12px;
+        font-size:.74rem;
+    }
+
+    .career-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    .career-grid{
+        grid-template-columns:1fr;
+    }
+
+    .careers-title{
+        font-size:2.6rem;
+    }
+
+    .modal-content{
+        padding:70px 20px 30px;
+    }
+
+    .close-btn{
+        top:12px;
+        right:12px;
+
+        width:38px;
+        height:38px;
+
+        font-size:1.2rem;
+    }
+}
+
+@media(max-width:480px){
+
+    .navbar{
+        padding:14px 16px;
+    }
+
+    .logo-area{
+        gap:10px;
+    }
+
+    .logo-area h2{
+        font-size:.78rem;
+    }
+
+    .logo-area img{
+        width:36px;
+        height:36px;
+    }
+
+    .nav-links{
+        width:220px;
+
+        top:74px;
+        left:16px;
+
+        padding:18px;
+    }
+
+    .careers-title{
+        font-size:2rem;
+    }
+
+    .career-card{
+        padding:40px 24px;
+    }
+
+    .career-card h2{
+        font-size:1.6rem;
+    }
+
+    .info-btn{
+        width:100%;
+    }
+
+    .careers-section{
+        padding:120px 18px 50px;
+    }
+
+    .modal-content{
+        padding:70px 18px 25px;
+    }
+
+    .modal-section h2{
+        font-size:1.6rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <nav class="navbar">
+
+        <div class="logo-area">
+
+            <img src="../IMG/Logo.png" alt="Logo">
+
+            <h2>RA' G Travel and Tours</h2>
+
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#about">About</a>
+            </li>
+
+            <li class="dropdown" id="offersDropdown">
+
+                <a href="#" id="offersToggle">
+                    Offers
+                    <i class="ri-arrow-down-s-line"></i>
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="domestic-tours.html">
+                        Domestic Tour
+                    </a>
+
+                    <a href="international.html">
+                        International Tours
+                    </a>
+
+                    <a href="documents-service.html">
+                        Documents Services
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="careers.html" class="active">
+                    Careers
+                </a>
+            </li>
+
+        </ul>
+
+        <a href="contact.html" class="contact-btn">
+            Contact
+        </a>
+
+        <div class="menu-btn" id="menuBtn">
+            <i class="ri-menu-3-line"></i>
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- =========================================================
+     CAREERS SECTION
+========================================================= -->
+
+<section class="careers-section">
+
+    <img
+    src="../IMG/domestic-BG.png"
+    class="careers-bg"
+    alt="Background">
+
+    <div class="bg-overlay"></div>
+
+    <div class="careers-container">
+
+        <h1 class="careers-title">
+            Join Our Team
+        </h1>
+
+        <p class="careers-subtitle">
+
+            Build your future with RA' G Travel and Tours.
+            Be part of a passionate travel team dedicated
+            to creating unforgettable journeys, excellent
+            customer experiences, and meaningful adventures.
+
+        </p>
+
+        <div class="career-grid">
+
+            <div class="career-card">
+
+                <div class="career-icon">
+                    <i class="ri-flight-takeoff-line"></i>
+                </div>
+
+                <span class="career-tag">
+                    TRAVEL SERVICES
+                </span>
+
+                <h2>
+                    Travel Consultant
+                </h2>
+
+                <p class="job-type">
+                    FULL TIME • ON-SITE
+                </p>
+
+                <p class="career-desc">
+
+                    Assist travelers with bookings,
+                    itineraries, visa concerns,
+                    and personalized travel planning.
+
+                </p>
+
+                <button
+                class="info-btn"
+                onclick="openModal('consultant')">
+
+                    MORE INFO
+
+                </button>
+
+            </div>
+
+            <div class="career-card">
+
+                <div class="career-icon">
+                    <i class="ri-map-pin-2-line"></i>
+                </div>
+
+                <span class="career-tag">
+                    TOUR OPERATIONS
+                </span>
+
+                <h2>
+                    Tour Coordinator
+                </h2>
+
+                <p class="job-type">
+                    FULL TIME • HYBRID
+                </p>
+
+                <p class="career-desc">
+
+                    Organize schedules, coordinate
+                    tours, and ensure smooth travel
+                    experiences for every client.
+
+                </p>
+
+                <button
+                class="info-btn"
+                onclick="openModal('coordinator')">
+
+                    MORE INFO
+
+                </button>
+
+            </div>
+
+            <div class="career-card">
+
+                <div class="career-icon">
+                    <i class="ri-passport-line"></i>
+                </div>
+
+                <span class="career-tag">
+                    DOCUMENT SERVICES
+                </span>
+
+                <h2>
+                    Visa Processing Specialist
+                </h2>
+
+                <p class="job-type">
+                    FULL TIME • OFFICE BASED
+                </p>
+
+                <p class="career-desc">
+
+                    Assist clients with passport,
+                    visa processing, and travel
+                    document requirements.
+
+                </p>
+
+                <button
+                class="info-btn"
+                onclick="openModal('visa')">
+
+                    MORE INFO
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div class="modal" id="careerModal">
+
+    <div class="modal-content">
+
+        <button
+        class="close-btn"
+        onclick="closeModal()">
+
+            <i class="ri-close-line"></i>
+
+        </button>
+
+        <div id="modalBody"></div>
+
+        <button
+        class="apply-btn"
+        onclick="showApplyMessage()">
+
+            APPLY NOW
+
+        </button>
+
+        <div
+        class="apply-message"
+        id="applyMessage">
+
+            <i class="ri-information-line"></i>
+
+            Applications are not available yet.
+            Please stay tuned for future career
+            openings and updates from RA' G Travel
+            and Tours.
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const navLinksItems =
+document.querySelectorAll(".nav-links a");
+
+const currentPage =
+window.location.pathname.split("/").pop();
+
+navLinksItems.forEach(link => {
+
+    if(link.getAttribute("href") === currentPage){
+
+        link.classList.add("active");
+
+    }
+
+});
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+    const icon = menuBtn.querySelector("i");
+
+    if(navLinks.classList.contains("active")){
+
+        icon.classList.remove("ri-menu-3-line");
+        icon.classList.add("ri-close-line");
+
+    }else{
+
+        icon.classList.remove("ri-close-line");
+        icon.classList.add("ri-menu-3-line");
+
+    }
+
+});
+
+/* =========================================================
+   MOBILE DROPDOWN
+========================================================= */
+
+const offersDropdown =
+document.getElementById("offersDropdown");
+
+const offersToggle =
+document.getElementById("offersToggle");
+
+offersToggle.addEventListener("click", (e) => {
+
+    if(window.innerWidth <= 991){
+
+        e.preventDefault();
+
+        offersDropdown.classList.toggle("active");
+
+    }
+
+});
+
+/* =========================================================
+   CLOSE MENU OUTSIDE CLICK
+========================================================= */
+
+document.addEventListener("click", (e) => {
+
+    if(
+        !navLinks.contains(e.target) &&
+        !menuBtn.contains(e.target)
+    ){
+
+        navLinks.classList.remove("active");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("ri-close-line");
+        icon.classList.add("ri-menu-3-line");
+
+    }
+
+});
+
+/* =========================================================
+   CLOSE MENU ON LINK CLICK
+========================================================= */
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", (e) => {
+
+        /* DON'T CLOSE WHEN OFFERS IS CLICKED */
+
+        if(
+            window.innerWidth <= 991 &&
+            !link.closest(".dropdown")
+        ){
+
+            navLinks.classList.remove("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            icon.classList.remove("ri-close-line");
+            icon.classList.add("ri-menu-3-line");
+
+        }
+
+    });
+
+});
+
+/* =========================================================
+   JOB DATA
+========================================================= */
+
+const jobs = {
+
+    consultant: `
+
+        <div class="modal-section">
+
+            <h2>Travel Consultant</h2>
+
+            <p>
+
+                We are looking for passionate and
+                customer-focused individuals who can
+                assist clients with travel bookings,
+                customized itineraries, hotel reservations,
+                and tour packages.
+
+            </p>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>QUALIFICATIONS</h3>
+
+            <ul>
+
+                <li>
+                    Excellent communication skills
+                </li>
+
+                <li>
+                    Friendly and customer-oriented
+                </li>
+
+                <li>
+                    Knowledge in travel systems is
+                    an advantage
+                </li>
+
+                <li>
+                    Organized and detail-oriented
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>BENEFITS</h3>
+
+            <ul>
+
+                <li>Travel incentives</li>
+                <li>Career growth opportunities</li>
+                <li>Professional training</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    coordinator: `
+
+        <div class="modal-section">
+
+            <h2>Tour Coordinator</h2>
+
+            <p>
+
+                Coordinate local and international
+                tour operations, assist travelers,
+                and ensure smooth and memorable
+                experiences for every client.
+
+            </p>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>QUALIFICATIONS</h3>
+
+            <ul>
+
+                <li>
+                    Tourism or Hospitality background
+                </li>
+
+                <li>
+                    Strong organizational skills
+                </li>
+
+                <li>
+                    Ability to multitask
+                </li>
+
+                <li>
+                    Good communication skills
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>BENEFITS</h3>
+
+            <ul>
+
+                <li>Hands-on tourism experience</li>
+                <li>Travel opportunities</li>
+                <li>Professional development</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    visa: `
+
+        <div class="modal-section">
+
+            <h2>Visa & Documentation Specialist</h2>
+
+            <p>
+
+                Assist clients with passport applications,
+                visa requirements, embassy documentation,
+                and other travel-related processing services.
+
+            </p>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>QUALIFICATIONS</h3>
+
+            <ul>
+
+                <li>
+                    Detail-oriented and organized
+                </li>
+
+                <li>
+                    Familiarity with visa processing
+                    is an advantage
+                </li>
+
+                <li>
+                    Strong customer service skills
+                </li>
+
+                <li>
+                    Ability to manage confidential
+                    documents responsibly
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="modal-section">
+
+            <h3>BENEFITS</h3>
+
+            <ul>
+
+                <li>Professional development</li>
+                <li>Supportive team environment</li>
+                <li>Career advancement opportunities</li>
+
+            </ul>
+
+        </div>
+
+    `
+
+};
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+const modal =
+document.getElementById("careerModal");
+
+const modalBody =
+document.getElementById("modalBody");
+
+/* OPEN MODAL */
+
+function openModal(job){
+
+    modal.classList.add("active");
+
+    modalBody.innerHTML = jobs[job];
+
+    document.body.style.overflow = "hidden";
+
+    document.getElementById("applyMessage")
+    .style.display = "none";
+
+}
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "auto";
+
+}
+
+/* APPLY MESSAGE */
+
+function showApplyMessage(){
+
+    document.getElementById("applyMessage")
+    .style.display = "block";
+
+}
+
+/* CLOSE OUTSIDE */
+
+modal.addEventListener("click",(e)=>{
+
+    if(e.target === modal){
+
+        closeModal();
+
+    }
+
+});
+
+/* ESC KEY */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key === "Escape"){
+
+        closeModal();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

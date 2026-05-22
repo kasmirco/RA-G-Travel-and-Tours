@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RA' G Travel and Tours</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="../IMG/Logo.png">
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#050505;
+    overflow-x:hidden;
+    color:#fff;
+}
+
+/* =========================
+   BACKGROUND SLIDESHOW
+========================= */
+
+.bg-slider{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+}
+
+.bg-slider img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    opacity:0;
+
+    transform:scale(1.1);
+
+    transition:
+    opacity 1.5s ease-in-out,
+    transform 6s ease;
+
+    filter:brightness(0.55);
+}
+
+.bg-slider img.active{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.88)
+    );
+
+    z-index:-1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    max-width:2050px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 42px;
+
+    background:rgba(26,10,1,0.42);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* LOGO */
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-area img{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo-area h2{
+    font-size:1rem;
+    font-weight:700;
+    color:#fff;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    gap:48px;
+
+    list-style:none;
+
+    margin-left:auto;
+    margin-right:55px;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+/* LINKS */
+
+.nav-links a{
+    position:relative;
+
+    text-decoration:none;
+
+    color:rgba(255,255,255,0.88);
+
+    font-size:0.82rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:0.35s ease;
+}
+
+.nav-links a:hover{
+    color:#ff9d2f;
+}
+
+/* UNDERLINE */
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+    height:2px;
+
+    border-radius:50px;
+
+    background:#ff9d2f;
+
+    transition:0.35s ease;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu{
+    position:absolute;
+
+    top:calc(100% + 18px);
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    translateY(10px);
+
+    min-width:240px;
+
+    background:rgba(10,10,10,0.96);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:20px;
+
+    padding:16px;
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.35s ease;
+
+    z-index:999;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+.dropdown-menu a{
+    width:100%;
+
+    padding:12px 14px;
+
+    border-radius:14px;
+
+    font-size:0.78rem;
+}
+
+.dropdown-menu a::after{
+    display:none;
+}
+
+.dropdown-menu a:hover{
+    background:rgba(255,157,47,0.12);
+
+    color:#ff9d2f;
+
+    padding-left:20px;
+}
+
+/* CONTACT BUTTON */
+
+.contact-btn{
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    color:#fff;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:0.35s ease;
+}
+
+.contact-btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 28px rgba(255,122,0,0.35);
+}
+
+/* MENU BUTTON */
+
+.menu-btn{
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:2rem;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    z-index:2001;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.center{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:
+    130px 20px
+    40px;
+}
+
+/* FORM BOX */
+
+.form-box{
+    width:100%;
+    max-width:650px;
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:32px;
+
+    animation:fadeUp 1s ease;
+}
+
+/* FONT */
+
+@font-face{
+    font-family:'Gravelo';
+
+    src:url('./Gravelo DEMO VERSION.woff2') format('woff2');
+
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* TITLE */
+
+.form-box h2{
+    text-align:center;
+
+    margin-bottom:24px;
+
+    letter-spacing:2px;
+
+    font-family:'Gravelo',sans-serif;
+}
+
+/* INPUTS */
+
+.input{
+    margin-bottom:16px;
+}
+
+label{
+    font-size:0.85rem;
+
+    color:rgba(255,255,255,0.8);
+}
+
+input,
+select{
+    width:100%;
+
+    padding:13px;
+
+    margin-top:6px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:rgba(0,0,0,0.35);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    color:#fff;
+
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#ff9d2f;
+}
+
+/* BUTTON */
+
+button{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    color:#fff;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+}
+
+button:hover{
+    transform:translateY(-4px);
+}
+
+/* =========================
+   SUCCESS OVERLAY
+========================= */
+
+.success-overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.65);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:99999;
+
+    opacity:0;
+    visibility:hidden;
+}
+
+.success-overlay.show{
+    opacity:1;
+    visibility:visible;
+
+    animation:slideIn .6s ease forwards;
+}
+
+/* SUCCESS BOX */
+
+.success-box{
+    width:min(520px,92%);
+
+    background:
+    linear-gradient(
+        135deg,
+        #111,
+        #1a1a1a
+    );
+
+    border-radius:22px;
+
+    padding:28px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,157,47,0.2);
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,0.7);
+}
+
+/* STAGES */
+
+.stage{
+    display:none;
+}
+
+.stage.active{
+    display:block;
+}
+
+/* LOADER */
+
+
+
+/* PROGRESS */
+
+.progress-bar{
+    margin-top:18px;
+
+    height:6px;
+
+    background:rgba(255,255,255,0.08);
+
+    border-radius:50px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    animation:fillBar 10s linear forwards;
+}
+
+/* SUCCESS ICON */
+
+.success-icon{
+    width:65px;
+    height:65px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00c853,
+        #b2ff59
+    );
+
+    font-size:26px;
+}
+
+/* QR */
+
+.qr-box{
+    margin:20px auto;
+
+    width:140px;
+
+    background:#fff;
+
+    padding:10px;
+
+    border-radius:12px;
+}
+
+.qr-box img{
+    width:100%;
+}
+
+.qr-text{
+    font-size:0.8rem;
+
+    color:rgba(255,255,255,0.7);
+}
+
+/* HOME BUTTON */
+
+.home-btn{
+    margin-top:18px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes slideIn{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes fillBar{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    .navbar{
+        padding:16px 22px;
+    }
+
+    .contact-btn{
+        display:none;
+    }
+
+    .menu-btn{
+        display:flex;
+    }
+
+    /* MOBILE NAVIGATION */
+
+    .nav-links{
+        position:absolute;
+
+        top:82px;
+        left:22px;
+
+        width:260px;
+        height:auto;
+
+        padding:18px;
+
+        margin:0;
+
+        background:rgba(8,8,8,0.96);
+
+        backdrop-filter:blur(18px);
+
+        border:1px solid rgba(255,255,255,0.08);
+
+        border-radius:24px;
+
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+
+        gap:8px;
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-10px);
+
+        transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s ease;
+
+        z-index:2000;
+    }
+
+    .nav-links.active{
+        opacity:1;
+        visibility:visible;
+
+        transform:translateY(0);
+    }
+
+    .nav-links li{
+        width:100%;
+    }
+
+    .nav-links a{
+        width:100%;
+
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+        padding:12px 14px;
+
+        border-radius:14px;
+
+        font-size:0.82rem;
+
+        line-height:1.4;
+    }
+
+    .nav-links a::after{
+        display:none;
+    }
+
+    .nav-links a:hover{
+        background:rgba(255,157,47,0.12);
+    }
+
+    /* =========================
+       MOBILE DROPDOWN FIX
+    ========================= */
+
+    .dropdown{
+        width:100%;
+    }
+
+    .dropdown-menu{
+        position:relative;
+
+        top:0;
+        left:0;
+
+        transform:none !important;
+
+        width:100%;
+
+        min-width:100%;
+
+        margin-top:8px;
+
+        padding:6px;
+
+        border-radius:16px;
+
+        background:rgba(255,255,255,0.03);
+
+        border:1px solid rgba(255,255,255,0.05);
+
+        display:none;
+        flex-direction:column;
+
+        gap:6px;
+
+        opacity:1;
+        visibility:visible;
+
+        overflow:hidden;
+
+        box-shadow:none;
+    }
+
+    .dropdown.active .dropdown-menu{
+        display:flex;
+    }
+
+    /* FIX OVERLAPPING LINKS */
+
+    .dropdown-menu a{
+        width:100%;
+
+        display:flex;
+        align-items:center;
+
+        padding:12px 14px;
+
+        border-radius:12px;
+
+        font-size:.72rem;
+
+        line-height:1.5;
+
+        min-height:48px;
+
+        white-space:normal;
+
+        word-break:break-word;
+
+        overflow-wrap:break-word;
+    }
+
+    /* REMOVE PUSH EFFECT */
+
+    .dropdown-menu a:hover{
+        padding-left:14px;
+
+        background:rgba(255,157,47,0.12);
+
+        color:#ff9d2f;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:14px 18px;
+    }
+
+    .logo-area{
+        gap:10px;
+    }
+
+    .logo-area img{
+        width:36px;
+        height:36px;
+    }
+
+    .logo-area h2{
+        font-size:0.72rem;
+        line-height:1.2;
+    }
+
+    .nav-links{
+        width:calc(100% - 36px);
+
+        left:18px;
+
+        top:76px;
+    }
+
+    .form-box{
+        padding:22px;
+    }
+
+    .form-box h2{
+        font-size:1.4rem;
+    }
+
+    input,
+    select{
+        font-size:0.9rem;
+    }
+
+    .success-box{
+        padding:24px 18px;
+    }
+
+}
+
+@media(max-width:420px){
+
+    .form-box{
+        padding:18px;
+    }
+
+    .success-box{
+        border-radius:20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     BACKGROUND SLIDES
+========================= -->
+
+<div class="bg-slider">
+
+    <img src="../IMG/book(BG-IMG) (1).png" class="active">
+
+    <img src="../IMG/book(BG-IMG) (2).png">
+
+    <img src="../IMG/book(BG-IMG) (3).png">
+
+    <img src="../IMG/book(BG-IMG) (4).png">
+
+    <img src="../IMG/book(BG-IMG) (5).png">
+
+</div>
+
+<div class="overlay"></div>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <nav class="navbar">
+
+        <!-- LOGO -->
+
+        <div class="logo-area">
+
+            <img src="../IMG/Logo.png" alt="Logo">
+
+            <h2>RA' G Travel and Tours</h2>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="index.html#about">About</a></li>
+
+            <li class="dropdown">
+
+                <a href="#" class="dropdown-toggle">
+
+                    Offers
+                    <span>▾</span>
+
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="domestic-tours.html">
+                        Domestic Tour
+                    </a>
+
+                    <a href="international.html">
+                        International Tours
+                    </a>
+
+                    <a href="documents-service.html">
+                        Documents Services
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li><a href="careers.html">Careers</a></li>
+
+        </ul>
+
+        <!-- CONTACT -->
+
+        <a href="contact.html" class="contact-btn">
+
+            Contact
+
+        </a>
+
+        <!-- MENU BUTTON -->
+
+        <div class="menu-btn" id="menuBtn">
+
+            <i class="ri-menu-3-line"></i>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- =========================
+     FORM
+========================= -->
+
+<div class="center">
+
+    <div class="form-box">
+
+        <h2>BOOK YOUR TRIP</h2>
+
+        <form id="bookingForm">
+
+            <div class="input">
+
+                <label>Full Name</label>
+
+                <input type="text" required>
+
+            </div>
+
+            <div class="input">
+
+                <label>Email</label>
+
+                <input type="email" required>
+
+            </div>
+
+            <div class="input">
+
+                <label>Destination</label>
+
+                <select required>
+
+                    <option>Boracay</option>
+                    <option>Batanes</option>
+                    <option>Palawan</option>
+                    <option>Bali</option>
+                    <option>Japan</option>
+                    <option>Taiwan</option>
+
+                </select>
+
+            </div>
+
+            <div class="input">
+
+                <label>Travel Date</label>
+
+                <input type="date" required>
+
+            </div>
+
+            <button type="submit">
+
+                Confirm Booking
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SUCCESS OVERLAY
+========================= -->
+
+<div id="successOverlay" class="success-overlay">
+
+    <div class="success-box">
+
+        <!-- LOADING -->
+
+        <div id="stageLoading" class="stage">
+
+            <div class="loader"></div>
+
+            <h2>Processing Your Booking</h2>
+
+            <p>Confirming your travel request...</p>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+        </div>
+
+        <!-- SUCCESS -->
+
+        <div id="stageSuccess" class="stage">
+
+            <div class="success-icon">✔</div>
+
+            <h2>Booking Successful</h2>
+
+            <p>
+                Your travel booking is confirmed
+                and saved in our system.
+            </p>
+
+            <div class="qr-box">
+
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=RAG-BOOKING-SUCCESS">
+
+            </div>
+
+            <p class="qr-text">
+
+                📸 Screenshot this as your digital ticket reference.
+
+            </p>
+
+            <button onclick="goHome()" class="home-btn">
+
+                Return to Home
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   BACKGROUND SLIDESHOW
+========================= */
+
+const slides = document.querySelectorAll(".bg-slider img");
+
+let index = 0;
+
+setInterval(() => {
+
+    slides[index].classList.remove("active");
+
+    index = (index + 1) % slides.length;
+
+    slides[index].classList.add("active");
+
+}, 4000);
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+const menuBtn = document.getElementById("menuBtn");
+
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+/* =========================
+   MOBILE DROPDOWN
+========================= */
+
+const dropdown = document.querySelector(".dropdown");
+
+const dropdownToggle = document.querySelector(".dropdown-toggle");
+
+dropdownToggle.addEventListener("click", (e) => {
+
+    if(window.innerWidth <= 950){
+
+        e.preventDefault();
+
+        dropdown.classList.toggle("active");
+
+    }
+
+});
+
+/* =========================
+   SUCCESS OVERLAY
+========================= */
+
+function showSuccess(){
+
+    const overlay = document.getElementById("successOverlay");
+
+    const loading = document.getElementById("stageLoading");
+
+    const success = document.getElementById("stageSuccess");
+
+    overlay.classList.add("show");
+
+    loading.classList.remove("active");
+
+    success.classList.remove("active");
+
+    setTimeout(() => {
+
+        loading.classList.add("active");
+
+    }, 1200);
+
+    setTimeout(() => {
+
+        loading.classList.remove("active");
+
+        success.classList.add("active");
+
+    }, 11200);
+
+    setTimeout(() => {
+
+        window.location.href = "index.html";
+
+    }, 30000);
+
+}
+
+/* =========================
+   GO HOME
+========================= */
+
+function goHome(){
+
+    window.location.href = "index.html";
+
+}
+
+/* =========================
+   FORM SUBMIT
+========================= */
+
+document
+.querySelector("#bookingForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    showSuccess();
+
+});
+
+
+
+/* CLOSE MENU WHEN LINK CLICKED */
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",(e)=>{
+
+        if(
+            link.classList.contains("dropdown-toggle")
+            && window.innerWidth <= 950
+        ){
+            return;
+        }
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+</script>
+
+</body>
+</html>

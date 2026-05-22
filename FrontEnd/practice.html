@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>RA' G Travel and Tours</title>
+
+<!-- REMIX ICON -->
+<link
+href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+rel="stylesheet"
+/>
+
+<style>
+
+/* =========================================================
+   FONT
+========================================================= */
+
+@font-face{
+    font-family:'Gravelo';
+    src:url('./Gravelo DEMO VERSION.woff2') format('woff2');
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050505;
+    overflow-x:hidden;
+    color:#fff;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    max-width:2050px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 42px;
+
+    background:rgba(26,10,1,0.42);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* LOGO */
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-area img{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo-area h2{
+    font-size:1rem;
+    font-weight:700;
+    color:#fff;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    gap:38px;
+
+    list-style:none;
+
+    margin-left:auto;
+    margin-right:55px;
+}
+
+.nav-links li{
+    position:relative;
+}
+
+/* LINKS */
+
+.nav-links a{
+    position:relative;
+
+    text-decoration:none;
+
+    color:rgba(255,255,255,0.88);
+
+    font-size:0.82rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:0.35s ease;
+}
+
+.nav-links a:hover{
+    color:#ff9d2f;
+}
+
+/* UNDERLINE */
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+    height:2px;
+
+    border-radius:50px;
+
+    background:#ff9d2f;
+
+    transition:0.35s ease;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu{
+    position:absolute;
+
+    top:calc(100% + 18px);
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    translateY(10px);
+
+    min-width:240px;
+
+    background:rgba(10,10,10,0.96);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:20px;
+
+    padding:16px;
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.35s ease;
+
+    z-index:999;
+}
+/* =========================================================
+   FIX DROPDOWN LAYER & OVERLAP
+========================================================= */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-menu{
+    z-index:3000;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 18px 45px rgba(0,0,0,0.45);
+
+    isolation:isolate;
+}
+
+/* PREVENT OVERLAP */
+
+.navbar{
+    overflow:visible;
+}
+
+.header{
+    overflow:visible;
+}
+/* DESKTOP DROPDOWN */
+
+@media(min-width:992px){
+
+    .dropdown:hover .dropdown-menu{
+        opacity:1;
+        visibility:visible;
+
+        transform:
+        translateX(-50%)
+        translateY(0);
+    }
+
+}
+
+/* MOBILE DROPDOWN */
+
+@media(max-width:991px){
+
+.dropdown-menu{
+    position:relative;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    min-width:100%;
+
+    margin-top:12px;
+
+    transform:none;
+
+    border-radius:18px;
+
+    padding:10px;
+
+    display:none;
+
+    opacity:1;
+    visibility:visible;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.35);
+
+    overflow:hidden;
+}
+
+.dropdown-menu a{
+    width:100%;
+
+    padding:14px 16px;
+
+    font-size:.82rem;
+
+    line-height:1.5;
+
+    white-space:normal;
+
+    border-radius:12px;
+}
+
+.dropdown-menu a:hover{
+    padding-left:22px;
+}
+.dropdown.active .dropdown-menu{
+    display:flex;
+    flex-direction:column;
+}
+}
+.dropdown-menu a{
+    width:100%;
+
+    padding:12px 14px;
+
+    border-radius:14px;
+
+    font-size:0.78rem;
+}
+
+.dropdown-menu a::after{
+    display:none;
+}
+
+.dropdown-menu a:hover{
+    background:rgba(255,157,47,0.12);
+
+    color:#ff9d2f;
+
+    padding-left:20px;
+}
+
+/* CONTACT BUTTON */
+
+.contact-btn{
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ffb347
+    );
+
+    color:#fff;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:0.35s ease;
+}
+
+.contact-btn:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 28px rgba(255,122,0,0.35);
+}
+
+/* MENU BUTTON */
+
+.menu-btn{
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:2rem;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    z-index:2001;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.domestic-section{
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:150px 30px 100px;
+
+    overflow:hidden;
+}
+
+/* BACKGROUND */
+
+.domestic-bg{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+    brightness(.35);
+
+    z-index:-2;
+}
+
+.bg-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,122,0,0.18),
+    transparent 30%),
+
+    linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.82)
+    );
+
+    z-index:-1;
+}
+
+/* CONTENT */
+
+.domestic-container{
+    width:100%;
+    max-width:1300px;
+
+    text-align:center;
+}
+
+/* TITLE */
+
+.domestic-title{
+    font-family:'Gravelo',sans-serif;
+
+    font-size:4rem;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+
+    text-transform:uppercase;
+}
+
+/* SUBTITLE */
+
+.domestic-subtitle{
+    max-width:900px;
+
+    margin:auto;
+
+    color:rgba(255,255,255,0.75);
+
+    line-height:1.9;
+
+    font-size:1rem;
+
+    margin-bottom:70px;
+}
+
+/* TOUR GRID */
+
+.tour-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+}
+
+/* CARD */
+
+.tour-card{
+    position:relative;
+
+    height:420px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:
+    transform .5s ease,
+    box-shadow .5s ease;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.45);
+}
+
+.tour-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+    transform .8s ease,
+    filter .5s ease;
+}
+
+/* HOVER */
+
+.tour-card:hover{
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 0 35px rgba(255,157,47,0.45);
+}
+
+.tour-card:hover img{
+    transform:scale(1.12);
+
+    filter:brightness(.8);
+}
+
+/* OVERLAY */
+
+.tour-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,0.92),
+    rgba(0,0,0,0.15),
+    transparent
+    );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:28px;
+}
+
+.tour-overlay h3{
+    font-size:1.8rem;
+
+    margin-bottom:10px;
+}
+
+.tour-overlay p{
+    color:rgba(255,255,255,0.7);
+
+    line-height:1.6;
+
+    font-size:.95rem;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,0.72);
+
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.4s ease;
+
+    z-index:9999;
+
+    padding:30px;
+}
+
+.modal.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* MODAL CONTENT */
+
+.modal-content{
+    position:relative;
+
+    width:100%;
+    max-width:900px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    transform:scale(.88);
+
+    transition:.45s ease;
+
+    box-shadow:
+    0 0 40px rgba(0,0,0,0.65);
+}
+
+.modal.active .modal-content{
+    transform:scale(1);
+}
+
+/* IMAGE */
+
+.modal-image{
+    width:100%;
+    max-height:82vh;
+
+    object-fit:contain;
+
+    display:block;
+
+    background:#000;
+}
+
+/* TOP ACTIONS */
+
+.modal-actions{
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    display:flex;
+    gap:14px;
+}
+
+.modal-btn{
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,0.58);
+
+    color:#fff;
+
+    font-size:1.4rem;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s ease;
+}
+
+.modal-btn:hover{
+    background:#ff9d2f;
+
+    transform:scale(1.08);
+}
+
+/* NAVIGATION */
+
+.modal-nav{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,0.55);
+
+    color:#fff;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s ease;
+}
+
+.modal-nav:hover{
+    background:#ff9d2f;
+}
+
+.prev-btn{
+    left:18px;
+}
+
+.next-btn{
+    right:18px;
+}
+
+/* INDICATOR */
+
+.image-indicator{
+    position:absolute;
+
+    bottom:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:rgba(0,0,0,0.58);
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-size:.9rem;
+
+    color:#fff;
+
+    backdrop-filter:blur(10px);
+}
+
+/* FULLSCREEN */
+
+.modal.fullscreen{
+    padding:0;
+}
+
+.modal.fullscreen .modal-content{
+    max-width:100%;
+    width:100%;
+    height:100%;
+    border-radius:0;
+}
+
+.modal.fullscreen .modal-image{
+    width:100%;
+    height:100%;
+    max-height:100vh;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.main-footer{
+    position:relative;
+
+    width:100%;
+
+    padding:90px 6% 35px;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,122,0,0.10),
+    transparent 28%),
+
+    radial-gradient(circle at bottom right,
+    rgba(255,157,47,0.08),
+    transparent 30%),
+
+    #050505;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+    overflow:hidden;
+}
+
+.footer-container{
+    position:relative;
+
+    display:grid;
+    grid-template-columns:
+    1.2fr .8fr 1fr;
+
+    gap:90px;
+
+    align-items:flex-start;
+}
+
+.footer-brand{
+    max-width:420px;
+}
+
+.footer-logo{
+    width:95px;
+
+    margin-bottom:28px;
+
+    object-fit:contain;
+}
+
+.footer-brand h2{
+    margin-bottom:18px;
+
+    color:#ffffff;
+
+    font-size:2rem;
+    font-weight:700;
+}
+
+.footer-brand p{
+    color:rgba(255,255,255,0.65);
+
+    line-height:1.9;
+}
+
+.footer-links h3,
+.footer-contact h3{
+    margin-bottom:28px;
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+}
+
+.footer-links ul{
+    list-style:none;
+}
+
+.footer-links ul li{
+    margin-bottom:18px;
+}
+
+.footer-links a{
+    text-decoration:none;
+
+    color:rgba(255,255,255,0.68);
+
+    transition:.3s ease;
+}
+
+.footer-links a:hover{
+    color:#ff9d2f;
+}
+
+.footer-contact p{
+    margin-bottom:18px;
+
+    color:rgba(255,255,255,0.65);
+
+    line-height:1.8;
+}
+
+.footer-social{
+    display:flex;
+    gap:14px;
+
+    margin-top:30px;
+}
+
+.footer-social a{
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    transition:.35s ease;
+}
+
+.footer-social a:hover{
+    transform:translateY(-6px);
+
+    border-color:
+    rgba(255,157,47,0.45);
+
+    box-shadow:
+    0 0 25px rgba(255,157,47,0.18);
+}
+
+.footer-social img{
+    width:20px;
+    height:20px;
+}
+
+.footer-bottom{
+    margin-top:80px;
+    padding-top:30px;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.footer-bottom p,
+.footer-bottom span{
+    color:rgba(255,255,255,0.55);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:991px){
+
+    .tour-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .domestic-title{
+        font-size:3rem;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+
+        gap:60px;
+    }
+
+.nav-links{
+    position:fixed;
+
+    top:88px;
+    left:22px;
+
+    width:280px;
+    max-width:calc(100vw - 44px);
+
+    background:rgba(10,10,10,0.96);
+
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:24px;
+
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+
+    gap:10px;
+
+    margin:0;
+
+    opacity:0;
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transform:
+    translateY(-10px)
+    scale(.98);
+
+    transition:
+    opacity .35s ease,
+    transform .35s ease,
+    visibility .35s ease;
+
+    z-index:2000;
+
+    height:auto;
+
+overflow-y:auto;
+overflow-x:hidden;
+}
+
+.nav-links.active{
+    opacity:1;
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transform:
+    translateY(0)
+    scale(1);
+}
+    .menu-btn{
+        display:flex;
+    }
+
+    .contact-btn{
+        display:none;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .domestic-section{
+        padding:130px 20px 80px;
+    }
+
+    .tour-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tour-card{
+        height:380px;
+    }
+
+    .domestic-title{
+        font-size:2.3rem;
+        line-height:1.2;
+    }
+
+    .domestic-subtitle{
+        font-size:.95rem;
+    }
+
+    .navbar{
+        padding:16px 22px;
+    }
+
+    .logo-area h2{
+        font-size:.9rem;
+    }
+
+    .modal{
+        padding:18px;
+    }
+
+    .modal-nav{
+        width:48px;
+        height:48px;
+
+        font-size:1.2rem;
+    }
+
+    .modal-btn{
+        width:46px;
+        height:46px;
+    }
+
+    .image-indicator{
+        font-size:.8rem;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+/* =========================================================
+   CLEAN MOBILE NAV FIX
+========================================================= */
+
+@media(max-width:768px){
+
+    .nav-links{
+        width:calc(100vw - 44px);
+
+        max-width:none;
+
+        left:22px;
+        right:22px;
+    }
+
+    .dropdown-menu{
+        width:100%;
+        min-width:100%;
+    }
+
+    .dropdown-menu a{
+        font-size:.78rem;
+
+        padding:13px 14px;
+    }
+
+}
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media(max-width:480px){
+
+    .tour-card{
+        height:320px;
+    }
+
+    .tour-overlay h3{
+        font-size:1.5rem;
+    }
+
+    .modal-actions{
+        top:10px;
+        right:10px;
+    }
+
+    .prev-btn{
+        left:10px;
+    }
+
+    .next-btn{
+        right:10px;
+    }
+
+}
+
+
+
+/* =========================================================
+   PREMIUM FOOTER
+========================================================= */
+
+.main-footer{
+    position:relative;
+
+    width:100%;
+
+    padding:90px 6% 35px;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,122,0,0.10),
+    transparent 28%),
+
+    radial-gradient(circle at bottom right,
+    rgba(255,157,47,0.08),
+    transparent 30%),
+
+    #050505;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+    overflow:hidden;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.footer-container{
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+    1.2fr .8fr 1fr;
+
+    gap:90px;
+
+    align-items:flex-start;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand{
+    max-width:420px;
+}
+
+.footer-logo{
+    width:95px;
+
+    margin-bottom:28px;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(0 0 20px rgba(255,157,47,0.25));
+}
+
+.footer-brand h2{
+    margin-bottom:18px;
+
+    color:#ffffff;
+
+    font-size:2rem;
+    font-weight:700;
+
+    line-height:1.1;
+}
+
+.footer-brand p{
+    color:rgba(255,255,255,0.65);
+
+    font-size:.98rem;
+
+    line-height:1.9;
+}
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+.footer-links h3,
+.footer-contact h3{
+    margin-bottom:28px;
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+    font-weight:600;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.footer-links ul{
+    list-style:none;
+}
+
+.footer-links ul li{
+    margin-bottom:18px;
+}
+
+.footer-links ul li a{
+    position:relative;
+
+    display:inline-block;
+
+    color:rgba(255,255,255,0.68);
+
+    font-size:.95rem;
+
+    text-decoration:none;
+
+    transition:
+    color .3s ease,
+    transform .3s ease;
+}
+
+.footer-links ul li a:hover{
+    color:#ff9d2f;
+
+    transform:translateX(4px);
+}
+
+/* =========================================================
+   FOOTER DROPDOWN
+========================================================= */
+
+.footer-dropdown{
+    position:relative;
+}
+
+.footer-dropdown-menu{
+    position:absolute;
+
+    top:100%;
+    left:0;
+
+    min-width:230px;
+
+    padding:14px 0;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#111111;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius:16px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:
+    opacity .3s ease,
+    transform .3s ease,
+    visibility .3s ease;
+
+    z-index:100;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.45);
+}
+
+.footer-dropdown:hover .footer-dropdown-menu{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+.footer-dropdown-menu a{
+    padding:12px 20px;
+
+    color:rgba(255,255,255,0.68);
+
+    font-size:.92rem;
+
+    transition:
+    background .3s ease,
+    color .3s ease,
+    padding-left .3s ease;
+}
+
+.footer-dropdown-menu a:hover{
+    background:
+    rgba(255,157,47,0.08);
+
+    color:#ff9d2f;
+
+    padding-left:26px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p{
+    margin-bottom:18px;
+
+    color:rgba(255,255,255,0.65);
+
+    font-size:.95rem;
+
+    line-height:1.8;
+}
+
+.footer-contact strong{
+    color:#ffffff;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social{
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:30px;
+}
+
+.footer-social a{
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.footer-social a:hover{
+    transform:translateY(-6px);
+
+    border-color:
+    rgba(255,157,47,0.45);
+
+    box-shadow:
+    0 0 25px rgba(255,157,47,0.18);
+}
+
+.footer-social img{
+    width:20px;
+    height:20px;
+
+    object-fit:contain;
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom{
+    position:relative;
+
+    margin-top:80px;
+    padding-top:30px;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.footer-bottom p{
+    color:rgba(255,255,255,0.55);
+
+    font-size:.9rem;
+}
+
+.footer-bottom span{
+    color:rgba(255,255,255,0.45);
+
+    font-size:.88rem;
+}
+
+/* =========================================================
+   PREMIUM POPUP
+========================================================= */
+
+.social-popup{
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    rgba(0,0,0,0.72);
+
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+    opacity .35s ease,
+    visibility .35s ease;
+
+    z-index:9999;
+}
+
+.social-popup.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================================================
+   POPUP CARD
+========================================================= */
+
+.popup-card{
+    position:relative;
+
+    width:90%;
+    max-width:430px;
+
+    padding:50px 38px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        #111111,
+        #1b1b1b
+    );
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.55);
+
+    transform:
+    translateY(30px)
+    scale(.95);
+
+    transition:
+    transform .4s ease;
+}
+
+.social-popup.active .popup-card{
+    transform:
+    translateY(0)
+    scale(1);
+}
+
+/* =========================================================
+   GLOW EFFECT
+========================================================= */
+
+.popup-glow{
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,157,47,0.25),
+        transparent 70%
+    );
+
+    top:-120px;
+    right:-120px;
+
+    pointer-events:none;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.popup-icon{
+    width:90px;
+    height:90px;
+
+    margin:auto auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:2.5rem;
+
+    color:#ff9d2f;
+
+    background:
+    rgba(255,157,47,0.12);
+
+    border:
+    1px solid rgba(255,157,47,0.25);
+
+    box-shadow:
+    0 0 30px rgba(255,157,47,0.15);
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.popup-card h2{
+    margin-bottom:16px;
+
+    color:#ffffff;
+
+    font-size:2rem;
+    font-weight:700;
+}
+
+.popup-card p{
+    color:rgba(255,255,255,0.68);
+
+    font-size:.98rem;
+
+    line-height:1.9;
+
+    margin-bottom:32px;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.popup-card button{
+    border:none;
+    outline:none;
+
+    padding:14px 34px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    color:#ffffff;
+
+    font-size:.95rem;
+    font-weight:600;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff7a00,
+        #ff9d2f
+    );
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.popup-card button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(255,157,47,0.35);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:991px){
+
+    .main-footer{
+        padding:80px 6% 30px;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+
+        gap:60px;
+    }
+
+    .footer-brand{
+        max-width:100%;
+    }
+
+    .footer-brand h2{
+        font-size:1.8rem;
+    }
+
+    .footer-bottom{
+        margin-top:60px;
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:576px){
+
+    .main-footer{
+        padding:70px 22px 28px;
+    }
+
+    .footer-logo{
+        width:80px;
+    }
+
+    .footer-brand h2{
+        font-size:1.5rem;
+    }
+
+    .footer-brand p,
+    .footer-contact p,
+    .footer-links ul li a{
+        font-size:.92rem;
+    }
+
+    .footer-social{
+        gap:12px;
+    }
+
+    .footer-social a{
+        width:40px;
+        height:40px;
+    }
+
+    .footer-bottom{
+        gap:10px;
+    }
+
+    .footer-bottom p,
+    .footer-bottom span{
+        font-size:.82rem;
+
+        line-height:1.7;
+    }
+
+    /* MOBILE DROPDOWN */
+
+    .footer-dropdown-menu{
+        position:relative;
+
+        top:10px;
+
+        width:100%;
+
+        opacity:1;
+        visibility:visible;
+
+        transform:none;
+
+        margin-top:10px;
+    }
+
+    /* MOBILE POPUP */
+
+    .popup-card{
+        padding:42px 24px;
+    }
+
+    .popup-card h2{
+        font-size:1.6rem;
+    }
+
+    .popup-card p{
+        font-size:.92rem;
+    }
+
+    .popup-icon{
+        width:75px;
+        height:75px;
+
+        font-size:2rem;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <nav class="navbar">
+
+        <!-- LOGO -->
+
+        <div class="logo-area">
+
+            <img src="../IMG/Logo.png" alt="Logo">
+
+            <h2>RA' G Travel and Tours</h2>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li class="dropdown">
+
+                <a href="#" class="dropdown-toggle">
+
+                    Offers
+                    <span>▾</span>
+
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="domestic-tours.html">
+                        Domestic Tour
+                    </a>
+
+                    <a href="international.html">
+                        International Tours
+                    </a>
+
+                    <a href="documents-service.html">
+                        Documents Services
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li><a href="Careers.html">Careers</a></li>
+
+        </ul>
+
+        <!-- CONTACT -->
+
+        <a href="contact.html" class="contact-btn">
+
+            Contact
+
+        </a>
+
+        <!-- MENU BUTTON -->
+
+        <div class="menu-btn" id="menuBtn">
+
+            <i class="ri-menu-3-line"></i>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<section class="domestic-section" id="home">
+
+    <!-- BACKGROUND -->
+
+    <img
+    src="../IMG/domestic-BG.png"
+    class="domestic-bg"
+    alt="Background">
+
+    <div class="bg-overlay"></div>
+
+    <!-- CONTENT -->
+
+    <div class="domestic-container">
+
+        <h1 class="domestic-title">
+            International Tour Packages
+        </h1>
+
+        <p class="domestic-subtitle">
+
+Join us in exploring the world and enriching your life. You can broaden your perspective, enhance your culture, and grow personally.We offer exciting and hassle-free international tours, helping you explore beautiful destinations around the world with comfort and convenience.
+
+
+        </p>
+
+        <!-- TOUR GRID -->
+
+        <div class="tour-grid">
+
+            <!-- BATANES -->
+
+            <div class="tour-card"
+            onclick="openModal('batanes')">
+
+                <img
+                src="../IMG/international-taiwan.jpg"
+                alt="Batanes">
+
+                <div class="tour-overlay">
+
+                    <h3>Taiwan</h3>
+
+                    <p>
+            Experience vibrant night markets,
+            breathtaking mountain scenery,
+            modern cities, and rich cultural heritage.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- BORACAY -->
+
+            <div class="tour-card"
+            onclick="openModal('boracay')">
+
+                <img
+                src="../IMG/international-bali.jpg"
+                alt="Boracay">
+
+                <div class="tour-overlay">
+
+                    <h3>Bali</h3>
+
+                    <p>
+            Discover tropical beaches,
+            stunning temples, relaxing resorts,
+            and unforgettable island adventures.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- PALAWAN -->
+
+            <div class="tour-card"
+            onclick="openModal('palawan')">
+
+                <img
+                src="../IMG/international-japan.jpg"
+                alt="Palawan">
+
+                <div class="tour-overlay">
+
+                    <h3>Japan</h3>
+
+                    <p>
+            Explore beautiful cherry blossoms,
+            advanced city life, traditional culture,
+            and world-famous Japanese cuisine.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <!-- ACTIONS -->
+
+        <div class="modal-actions">
+
+            <button
+            class="modal-btn"
+            onclick="toggleFullscreen()">
+
+                <i class="ri-fullscreen-line"></i>
+
+            </button>
+
+            <button
+            class="modal-btn"
+            onclick="closeModal()">
+
+                <i class="ri-close-line"></i>
+
+            </button>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <button
+        class="modal-nav prev-btn"
+        onclick="prevImage()">
+
+            <i class="ri-arrow-left-s-line"></i>
+
+        </button>
+
+        <button
+        class="modal-nav next-btn"
+        onclick="nextImage()">
+
+            <i class="ri-arrow-right-s-line"></i>
+
+        </button>
+
+        <!-- IMAGE -->
+
+        <img
+        src=""
+        class="modal-image"
+        id="modalImage">
+
+        <!-- INDICATOR -->
+
+        <div class="image-indicator"
+        id="imageIndicator">
+
+            Front Page
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+     PREMIUM FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- =====================================================
+             LEFT : BRAND
+        ====================================================== -->
+
+        <div class="footer-brand">
+
+            <img
+            src="../IMG/Logo.png"
+            alt="RA' G Travel and Tours"
+            class="footer-logo">
+
+            <h2 class="gravelo-title">
+                RA' G Travel and Tours
+            </h2>
+
+            <p>
+                Making travel more meaningful, memorable,
+                and accessible through unforgettable journeys,
+                personalized experiences, and passionate service.
+            </p>
+
+        </div>
+
+        <!-- =====================================================
+             CENTER : LINKS
+        ====================================================== -->
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li>
+                    <a href="#">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <!-- =====================================================
+                     DROPDOWN
+                ====================================================== -->
+
+                <li class="footer-dropdown">
+
+                    <a href="#offers" class="dropdown-toggle">
+                        Offers +
+                    </a>
+
+                    <div class="footer-dropdown-menu">
+
+                        <a href="domestic-tours.html">
+                            Domestic Tour
+                        </a>
+
+                        <a href="international.html">
+                            International Tours
+                        </a>
+
+                        <a href="documents-service.html">
+                            Documents Services
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li>
+                    <a href="careers.html">Career</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- =====================================================
+             RIGHT : CONTACT
+        ====================================================== -->
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>
+                <strong>Phone:</strong><br>
+                871-0078
+            </p>
+
+            <p>
+                <strong>Email:</strong><br>
+                RagTravel@gmail.com
+            </p>
+
+            <!-- =====================================================
+                 SOCIAL
+            ====================================================== -->
+
+            <div class="footer-social">
+
+                <a href="#" onclick="showMessage(event)">
+
+                    <img
+                    src="../IMG/Linkedin_Shiny_Icon.svg.png"
+                    alt="LinkedIn">
+
+                </a>
+
+                <a href="#" onclick="showMessage(event)">
+
+                    <img
+                    src="../IMG/X.png"
+                    alt="X">
+
+                </a>
+
+                <a href="#" onclick="showMessage(event)">
+
+                    <img
+                    src="../IMG/tele.png"
+                    alt="Telegram">
+
+                </a>
+
+                <a href="#" onclick="showMessage(event)">
+
+                    <img
+                    src="../IMG/github-icon.png"
+                    alt="GitHub">
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+         FOOTER BOTTOM
+    ====================================================== -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 RA' G Travel and Tours.
+            All Rights Reserved.
+        </p>
+
+        <span>
+            Designed and Developed by
+            John Kenneth Costinar        </span>
+
+    </div>
+
+
+<!-- =========================================================
+     PREMIUM MESSAGE POPUP
+========================================================= -->
+
+<div class="social-popup" id="socialPopup">
+
+    <div class="popup-card">
+
+        <div class="popup-glow"></div>
+
+        <div class="popup-icon">
+            ✈
+        </div>
+
+        <h2>
+            Coming Soon
+        </h2>
+
+        <p>
+            Our social media pages are currently under development.
+            We’re preparing something exciting for your next journey.
+            Stay tuned and travel with us soon!
+        </p>
+
+        <button onclick="closePopup()">
+            Got It
+        </button>
+
+    </div>
+
+</div>
+</footer>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+const dropdown = document.querySelector(".dropdown");
+const dropdownToggle =
+document.querySelector(".dropdown-toggle");
+
+/* TOGGLE MENU */
+
+menuBtn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    navLinks.classList.toggle("active");
+
+    /* CHANGE ICON */
+
+    if(navLinks.classList.contains("active")){
+
+        menuBtn.innerHTML =
+        '<i class="ri-close-line"></i>';
+
+    }else{
+
+        menuBtn.innerHTML =
+        '<i class="ri-menu-3-line"></i>';
+
+        dropdown.classList.remove("active");
+
+    }
+
+});
+
+/* MOBILE DROPDOWN */
+
+dropdownToggle.addEventListener("click", (e) => {
+
+    if(window.innerWidth <= 991){
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        dropdown.classList.toggle("active");
+
+    }
+
+});
+
+/* CLOSE MENU WHEN CLICKING LINKS */
+
+document.querySelectorAll(".nav-links li a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        if(link.classList.contains("dropdown-toggle"))
+        return;
+
+        if(window.innerWidth <= 991){
+
+            navLinks.classList.remove("active");
+
+            dropdown.classList.remove("active");
+
+            menuBtn.innerHTML =
+            '<i class="ri-menu-3-line"></i>';
+
+        }
+
+    });
+
+});
+
+/* OUTSIDE CLICK */
+
+document.addEventListener("click", (e) => {
+
+    const clickedInside =
+    navLinks.contains(e.target) ||
+    menuBtn.contains(e.target);
+
+    if(!clickedInside && window.innerWidth <= 991){
+
+        navLinks.classList.remove("active");
+
+        dropdown.classList.remove("active");
+
+        menuBtn.innerHTML =
+        '<i class="ri-menu-3-line"></i>';
+
+    }
+
+});
+
+/* RESET */
+
+window.addEventListener("resize", () => {
+
+    if(window.innerWidth > 991){
+
+        navLinks.classList.remove("active");
+
+        dropdown.classList.remove("active");
+
+        menuBtn.innerHTML =
+        '<i class="ri-menu-3-line"></i>';
+
+    }
+
+});
+
+
+
+/* =========================================================
+   BROCHURE DATA
+========================================================= */
+
+const brochures = {
+
+    batanes: [
+
+    "../IMG/Brochure taiwan (back).png",
+    "../IMG/Brochure taiwan (front).png"
+
+    ],
+
+    boracay: [
+
+    "../IMG/Brochure bali (front).png",
+    "../IMG/Brochure bali (back).png"
+
+    ],
+
+    palawan: [
+
+    "../IMG/Brochure japan (front).png",
+    "../IMG/Brochure japan (back).png"
+
+    ]
+
+};
+
+/* =========================================================
+   MODAL VARIABLES
+========================================================= */
+
+const modal = document.getElementById("modal");
+const modalImage = document.getElementById("modalImage");
+const imageIndicator =
+document.getElementById("imageIndicator");
+
+let currentTour = [];
+let currentIndex = 0;
+
+/* =========================================================
+   OPEN MODAL
+========================================================= */
+
+function openModal(tour){
+
+    currentTour = brochures[tour];
+    currentIndex = 0;
+
+    updateImage();
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+    modal.classList.remove("active");
+    modal.classList.remove("fullscreen");
+
+    document.body.style.overflow = "auto";
+}
+
+/* =========================================================
+   UPDATE IMAGE
+========================================================= */
+
+function updateImage(){
+
+    modalImage.src = currentTour[currentIndex];
+
+    imageIndicator.innerHTML =
+    currentIndex === 0
+    ? "Front Page"
+    : "Back Page";
+}
+
+/* =========================================================
+   NEXT IMAGE
+========================================================= */
+
+function nextImage(){
+
+    currentIndex++;
+
+    if(currentIndex >= currentTour.length){
+        currentIndex = 0;
+    }
+
+    updateImage();
+}
+
+/* =========================================================
+   PREV IMAGE
+========================================================= */
+
+function prevImage(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = currentTour.length - 1;
+    }
+
+    updateImage();
+}
+
+/* =========================================================
+   FULLSCREEN
+========================================================= */
+
+function toggleFullscreen(){
+
+    modal.classList.toggle("fullscreen");
+}
+
+/* =========================================================
+   CLOSE OUTSIDE
+========================================================= */
+
+modal.addEventListener("click", (e)=>{
+
+    if(e.target === modal){
+        closeModal();
+    }
+
+});
+
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener("keydown", (e)=>{
+
+    if(e.key === "Escape"){
+        closeModal();
+    }
+
+    if(e.key === "ArrowRight"){
+        nextImage();
+    }
+
+    if(e.key === "ArrowLeft"){
+        prevImage();
+    }
+
+});
+
+
+
+
+
+
+
+function showMessage(event){
+
+    event.preventDefault();
+
+    document
+    .getElementById("socialPopup")
+    .classList.add("active");
+
+}
+
+function closePopup(){
+
+    document
+    .getElementById("socialPopup")
+    .classList.remove("active");
+
+}
+
+/* OPTIONAL:
+   CLOSE POPUP WHEN CLICKING OUTSIDE */
+
+window.onclick = function(event){
+
+    const popup =
+    document.getElementById("socialPopup");
+
+    if(event.target === popup){
+
+        popup.classList.remove("active");
+
+    }
+
+}
+
+
+</script>
+
+</body>
+</html>
